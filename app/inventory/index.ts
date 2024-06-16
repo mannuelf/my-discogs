@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { getErrorMessage } from "./inventory.helpers";
 import type { InventoryFetchResponse } from "./inventory.types";
 
