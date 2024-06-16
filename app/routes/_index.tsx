@@ -27,13 +27,13 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   const data: InventoryFetchResponse = useLoaderData();
-  // console.log("🚀 ~ Index ~ data:", data);
 
   return (
     <>
-      <PaginationBar total={data.pagination.pages} />
+      <div className="fixed mt-0 top-0 left-0 right-0 flex justify-center items-center ">
+        <PaginationBar total={data.pagination.pages} />
+      </div>
       <Inventory {...data} />
-      <PaginationBar total={data.pagination.pages} />
       <Footer />
     </>
   );

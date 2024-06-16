@@ -28,7 +28,7 @@ function setSearchParamsString(
     .join("&");
 }
 
-export function PaginationBar({ total }: { total: number }) {
+export const PaginationBar = ({ total }: { total: number }): React.ReactElement => {
   const [searchParams] = useSearchParams();
   const $skip = Number(searchParams.get("$skip")) || 0;
   const $top = Number(searchParams.get("$top")) || 10;
@@ -66,11 +66,11 @@ export function PaginationBar({ total }: { total: number }) {
   }
 
   return (
-    <section className="flex justify-center static mt-8 mb-8 bottom-8">
+    <section className="flex justify-center mt-8 mb-8 bottom-8 bg-slate-100 rounded-md shadow-md">
       <div className="flex items-center gap-1">
         <Button
           aria-label="Go to first page"
-          size="default"
+          size="sm"
           variant="outline"
           asChild
           disabled={!canPageBackwards}
@@ -124,7 +124,7 @@ export function PaginationBar({ total }: { total: number }) {
                 size="default"
                 variant="ghost"
                 key={`${pageNumber}-active`}
-                className="grid min-w-[2rem] place-items-center bg-neutral-200 text-sm text-black"
+                className="grid min-w-[2rem] place-items-center bg-orange-300 hover:bg-orange-300 text-sm text-black hover:cursor-default"
               >
                 <div>
                   <span className="sr-only">Page {pageNumber}</span>
@@ -150,7 +150,7 @@ export function PaginationBar({ total }: { total: number }) {
                   }}
                   preventScrollReset
                   prefetch="intent"
-                  className="min-w-[2rem] font-normal text-neutral-600"
+                  className="min-w-[2rem] font-normal text-neutral-900"
                 >
                   {pageNumber}
                 </Link>
@@ -184,7 +184,7 @@ export function PaginationBar({ total }: { total: number }) {
 
         <Button
           aria-label="Go to last page"
-          size="default"
+          size="sm"
           variant="outline"
           asChild
           disabled={!canPageForwards}
@@ -207,4 +207,4 @@ export function PaginationBar({ total }: { total: number }) {
       </div>
     </section>
   );
-}
+};

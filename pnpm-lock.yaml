@@ -20,12 +20,6 @@ importers:
       '@remix-run/serve':
         specifier: ^2.9.2
         version: 2.9.2(typescript@5.4.5)
-      '@tanstack/react-query':
-        specifier: ^5.45.0
-        version: 5.45.0(react@19.0.0-rc-fb9a90fa48-20240614)
-      '@tanstack/react-query-devtools':
-        specifier: ^5.45.0
-        version: 5.45.0(@tanstack/react-query@5.45.0(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -826,23 +820,6 @@ packages:
     resolution: {integrity: sha512-UOo5FdvOL0+eIVTgS4tIdbW+TtnBLWg1YBCcU2KWM7nuNwRz9bksDX1bekJJCpu25N1DVWaCwnT39dVQxzqS8g==}
     cpu: [x64]
     os: [win32]
-
-  '@tanstack/query-core@5.45.0':
-    resolution: {integrity: sha512-RVfIZQmFUTdjhSAAblvueimfngYyfN6HlwaJUPK71PKd7yi43Vs1S/rdimmZedPWX/WGppcq/U1HOj7O7FwYxw==}
-
-  '@tanstack/query-devtools@5.37.1':
-    resolution: {integrity: sha512-XcG4IIHIv0YQKrexTqo2zogQWR1Sz672tX2KsfE9kzB+9zhx44vRKH5si4WDILE1PIWQpStFs/NnrDQrBAUQpg==}
-
-  '@tanstack/react-query-devtools@5.45.0':
-    resolution: {integrity: sha512-bYHKCBQxRYQgQPPt+OdxJxoGag8SyPYxFxUsTHXERPnhD99I8iUV39XGYePyxKv5b3oME4fM1e8AgQ1aPxTQ6w==}
-    peerDependencies:
-      '@tanstack/react-query': ^5.45.0
-      react: ^18 || ^19
-
-  '@tanstack/react-query@5.45.0':
-    resolution: {integrity: sha512-y272cKRJp1BvehrWG4ashOBuqBj1Qm2O6fgYJ9LYSHrLdsCXl74GbSVjUQTReUdHuRIl9cEOoyPa6HYag400lw==}
-    peerDependencies:
-      react: ^18.0.0
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -4258,21 +4235,6 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.18.0':
     optional: true
-
-  '@tanstack/query-core@5.45.0': {}
-
-  '@tanstack/query-devtools@5.37.1': {}
-
-  '@tanstack/react-query-devtools@5.45.0(@tanstack/react-query@5.45.0(react@19.0.0-rc-fb9a90fa48-20240614))(react@19.0.0-rc-fb9a90fa48-20240614)':
-    dependencies:
-      '@tanstack/query-devtools': 5.37.1
-      '@tanstack/react-query': 5.45.0(react@19.0.0-rc-fb9a90fa48-20240614)
-      react: 19.0.0-rc-fb9a90fa48-20240614
-
-  '@tanstack/react-query@5.45.0(react@19.0.0-rc-fb9a90fa48-20240614)':
-    dependencies:
-      '@tanstack/query-core': 5.45.0
-      react: 19.0.0-rc-fb9a90fa48-20240614
 
   '@types/acorn@4.0.6':
     dependencies:

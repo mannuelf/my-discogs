@@ -1,9 +1,5 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./tailwind.css";
-
-const queryClient = new QueryClient();
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const error = useRouteError();
@@ -28,10 +24,5 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Outlet />
-      <ReactQueryDevtools initialIsOpen={false} />
-    </QueryClientProvider>
-  );
+  return <Outlet />;
 }
