@@ -1,8 +1,28 @@
-# Welcome to MyDiscogs
+# MyDiscogs - React Remix App
 
 MyDiscogs is a React client to display all the "for sale" items in a sellers inventory using the [Discogs API](https://www.discogs.com/developers).
 
+To see the contents of a specific seller you must add the seller name to environment variable: `SELLER_USERNAME`
+
+## Environment variables
+
+```sh
+ACCESS_TOKEN_URL=https://api.discogs.com/oauth/access_token
+AUTHORIZE_URL=https://www.discogs.com/oauth/authorize
+CONSUMER_KEY=
+CONSUMER_SECRET=
+REQUEST_TOKEN_URL=https://api.discogs.com/oauth/request_token
+SELLER_USERNAME=
+USER_AGENT=yourAppName/1.0 +http://localhost:5173
+```
+
+Get your consumer key and secret from [Discogs API](https://www.discogs.com/developers)
+
 ## Development
+
+```sh
+pnpm i
+```
 
 Run the dev server:
 
