@@ -1,6 +1,6 @@
 export const Footer = (): React.ReactElement => {
   return (
-    <footer className="p-4 border-t-2 border-orange-3 ">
+    <footer className="mt-4 p-4">
       Data 🫶 provided by:{" "}
       <a href="https://www.discogs.com/developers" target="_blank" rel="noopener noreferrer">
         <img

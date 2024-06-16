@@ -93,7 +93,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
         <Button
           aria-label="Go to previous page"
-          size="default"
+          size="sm"
           variant="outline"
           asChild
           disabled={!canPageBackwards}
@@ -121,7 +121,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
           if (isCurrentPage) {
             return (
               <Button
-                size="default"
+                size="sm"
                 variant="ghost"
                 key={`${pageNumber}-active`}
                 className="grid min-w-[2rem] place-items-center bg-orange-300 hover:bg-orange-300 text-sm text-black hover:cursor-default"
@@ -136,7 +136,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             return (
               <Button
                 aria-label="Go to next page"
-                size="default"
+                size="sm"
                 variant="ghost"
                 asChild
                 key={pageNumber}
@@ -161,7 +161,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
         <Button
           aria-label="Go to next page"
-          size="default"
+          size="sm"
           variant="outline"
           asChild
           disabled={!canPageForwards}
