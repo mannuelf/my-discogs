@@ -1,9 +1,10 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
+import "dotenv/config";
 import ReactGA from "react-ga4";
 import "./tailwind.css";
 
 if (typeof window !== "undefined") {
-  ReactGA.initialize(process.env.GOOGLE_ANALYTICS_ID);
+  ReactGA.initialize("G-JG2X5QBTD3");
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {

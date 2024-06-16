@@ -4,7 +4,7 @@ declare namespace NodeJS {
     AUTHORIZE_URL: string;
     CONSUMER_KEY: string;
     CONSUMER_SECRET: string;
-    GOOGLE_ANALYTICS_ID: string;
+    REACT_APP_GOOGLE_ANALYTICS_ID: string;
     REQUEST_TOKEN_URL: string;
     SELLER_USERNAME: string;
     USER_AGENT: string;
