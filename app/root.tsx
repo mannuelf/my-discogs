@@ -15,11 +15,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div className="container">
+        <main className="container">
           {children}
           <ScrollRestoration />
           <Scripts />
-        </div>
+        </main>
       </body>
     </html>
   );

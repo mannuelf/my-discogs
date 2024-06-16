@@ -3,7 +3,10 @@ export interface Pagination {
   page: number;
   pages: number;
   per_page: number;
-  urls: Record<string, unknown>; // Assuming URLs is an object with unknown structure
+  urls: Record<string, {
+    last: string
+    next: string
+  }>;
 }
 
 export interface Price {
@@ -11,39 +14,85 @@ export interface Price {
   value: number;
 }
 
-export interface Seller {
-  id: number;
-  resource_url: string;
-  username: string;
+interface OriginalPrice {
+  curr_abbr: string;
+  curr_id: number;
+  formatted: string;
+  value: number;
 }
 
-export interface Release {
-  artist: string;
-  catalog_number: string;
-  description: string;
-  format: string;
+interface SellerStats {
+  rating: string;
+  stars: number;
+  total: number;
+}
+
+interface Seller {
   id: number;
+  username: string;
+  avatar_url: string;
+  stats: SellerStats;
+  min_order_total: number;
+  html_url: string;
+  uid: number;
+  url: string;
+  payment: string;
+  shipping: string;
   resource_url: string;
+}
+
+interface Image {
+  type: string;
+  uri: string;
+  resource_url: string;
+  uri150: string;
+  width: number;
+  height: number;
+}
+
+interface ReleaseStatsCommunity {
+  in_wantlist: number;
+  in_collection: number;
+}
+
+interface ReleaseStats {
+  community: ReleaseStatsCommunity;
+}
+
+interface Release {
   thumbnail: string;
+  description: string;
+  images: Image[];
+  artist: string;
+  format: string;
+  resource_url: string;
   title: string;
   year: number;
+  id: number;
+  label: string;
+  catalog_number: string;
+  stats: ReleaseStats;
 }
 
 export interface Listing {
-  allow_offers: boolean;
-  audio: boolean;
-  comments: string;
-  condition: string;
   id: number;
-  posted: string;
-  price: Price;
-  release: Release;
   resource_url: string;
-  seller: Seller;
-  ships_from: string;
-  sleeve_condition: string;
-  status: string;
   uri: string;
+  status: string;
+  condition: string;
+  sleeve_condition: string;
+  comments: string;
+  ships_from: string;
+  posted: string;
+  allow_offers: boolean;
+  offer_submitted: boolean;
+  audio: boolean;
+  price: Price;
+  original_price: OriginalPrice;
+  shipping_price: Record<string, unknown>;
+  original_shipping_price: Record<string, unknown>;
+  seller: Seller;
+  release: Release;
 }
 
 export interface InventoryFetchResponse {
