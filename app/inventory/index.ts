@@ -2,7 +2,7 @@ import type { InventoryFetchResponse } from "./inventory.types";
 
 /**
  * Fetch user inventory
- * Documentation: https://www.discogs.com/developers/#page:marketplace,header:marketplace-inventory
+ * @see https://www.discogs.com/developers/#page:marketplace,header:marketplace-inventory
  * @param username
  * @param status
  * @param sort
