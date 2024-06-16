@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
  * Thanks to Jacob Paris for this function
  * @param searchParams
  * @param changes
- * @see https://github.com/jacobparis-insiders/jacobparis.com/blob/main/app/examples/remix-pagination/PaginationBar.tsx
+ * @see https://www.jacobparis.com/content/remix-pagination
  */
 function setSearchParamsString(
   searchParams: URLSearchParams,
@@ -68,7 +68,13 @@ export function PaginationBar({ total }: { total: number }) {
   return (
     <section className="flex justify-center static mt-8 mb-8 bottom-8">
       <div className="flex items-center gap-1">
-        <Button size="default" variant="outline" asChild disabled={!canPageBackwards}>
+        <Button
+          aria-label="Go to first page"
+          size="default"
+          variant="outline"
+          asChild
+          disabled={!canPageBackwards}
+        >
           <Link
             to={{
               search: setSearchParamsString(searchParams, {
@@ -85,7 +91,13 @@ export function PaginationBar({ total }: { total: number }) {
           </Link>
         </Button>
 
-        <Button size="default" variant="outline" asChild disabled={!canPageBackwards}>
+        <Button
+          aria-label="Go to previous page"
+          size="default"
+          variant="outline"
+          asChild
+          disabled={!canPageBackwards}
+        >
           <Link
             to={{
               search: setSearchParamsString(searchParams, {
@@ -122,7 +134,13 @@ export function PaginationBar({ total }: { total: number }) {
             );
           } else {
             return (
-              <Button size="default" variant="ghost" asChild key={pageNumber}>
+              <Button
+                aria-label="Go to next page"
+                size="default"
+                variant="ghost"
+                asChild
+                key={pageNumber}
+              >
                 <Link
                   to={{
                     search: setSearchParamsString(searchParams, {
@@ -141,7 +159,13 @@ export function PaginationBar({ total }: { total: number }) {
           }
         })}
 
-        <Button size="default" variant="outline" asChild disabled={!canPageForwards}>
+        <Button
+          aria-label="Go to next page"
+          size="default"
+          variant="outline"
+          asChild
+          disabled={!canPageForwards}
+        >
           <Link
             to={{
               search: setSearchParamsString(searchParams, {
@@ -158,7 +182,13 @@ export function PaginationBar({ total }: { total: number }) {
           </Link>
         </Button>
 
-        <Button size="default" variant="outline" asChild disabled={!canPageForwards}>
+        <Button
+          aria-label="Go to last page"
+          size="default"
+          variant="outline"
+          asChild
+          disabled={!canPageForwards}
+        >
           <Link
             to={{
               search: setSearchParamsString(searchParams, {
