@@ -1,13 +1,13 @@
-# Welcome to My Discogs
+# Welcome to MyDiscogs
 
-My Discogs is client app to display all the for sale items in a sellers inventory using the [Discogs API](https://www.discogs.com/developers).
+MyDiscogs is a React client to display all the "for sale" items in a sellers inventory using the [Discogs API](https://www.discogs.com/developers).
 
 ## Development
 
 Run the dev server:
 
-```shellscript
-pnpm run dev
+```sh
+pnpm dev
 ```
 
 ## Deployment
@@ -15,7 +15,7 @@ pnpm run dev
 First, build your app for production:
 
 ```sh
-pnpm run build
+pnpm build
 ```
 
 Then run the app in production mode:
@@ -28,9 +28,10 @@ Now you'll need to pick a host to deploy it to.
 
 ### Built With
 
-- 📖 [Remix docs](https://remix.run/docs)
+- 💽 [Discogs API](https://www.discogs.com/developers)
+- 📖 [Remix](https://remix.run/docs)
 - 🎨 [shadcn/ui](https://ui.shadcn.com/)
-- React 19
+- 👩‍💻 [React v19](https://react.dev)
 
 ### DIY
 
