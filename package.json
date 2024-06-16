@@ -11,16 +11,22 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.0.2",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
     "@tanstack/react-query": "^5.45.0",
     "@tanstack/react-query-devtools": "^5.45.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "disconnect": "^1.2.2",
     "dotenv": "^16.4.5",
     "isbot": "^4.1.0",
+    "lucide-react": "^0.395.0",
     "react": "19.0.0-rc-fb9a90fa48-20240614",
-    "react-dom": "19.0.0-rc-fb9a90fa48-20240614"
+    "react-dom": "19.0.0-rc-fb9a90fa48-20240614",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.9.2",
