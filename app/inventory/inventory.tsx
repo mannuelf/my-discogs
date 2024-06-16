@@ -43,56 +43,57 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                   >
                     Buy on Discogs
                   </a>
-                  <br className="p-4" />
-                  <strong>Listen:</strong>
-                  <div className="flex">
-                    <span className="grid grid-cols-3 gap-4	p-2 text-xs font-light text-white rounded-br-lg">
-                      <a
-                        href={`https://music.youtube.com/search?q=${listing.release.artist} ${listing.release.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mr-2"
-                      >
-                        <img src={"./icon-youtube.svg"} alt="YouTube" width={20} height={20} />
-                      </a>
-                      <a
-                        href={`https://music.apple.com/us/search?term=${listing.release.artist} ${listing.release.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mr-2"
-                      >
-                        <img src={"./icon-apple.svg"} alt="Apple Music" width={20} height={20} />
-                      </a>
-                      <a
-                        href={`https://www.deezer.com/search/${listing.release.artist} ${listing.release.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mr-2"
-                      >
-                        <img src={"./icon-deezer.svg"} alt="Deezer" width={20} height={20} />
-                      </a>
-                      <a
-                        href={`https://open.spotify.com/search/${listing.release.artist} ${listing.release.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mr-2"
-                      >
-                        <img src={"./icon-spotify.svg"} alt="Spotify" width={20} height={20} />
-                      </a>
-                      <a
-                        href={`https://listen.tidal.com/search?q=${listing.release.artist} ${listing.release.title}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-block mr-2"
-                      >
-                        <img src={"./icon-tidal.svg"} alt="TIDAL" width={20} height={20} />
-                      </a>
-                    </span>
-                  </div>
                 </CardDescription>
               </CardContent>
             </div>
-            <CardFooter className="p-0"></CardFooter>
+            <CardFooter className="p-0">
+              <br className="p-4" />
+              <strong>🎧 demo:</strong>
+              <div className="flex">
+                <span className="grid grid-cols-6 gap-4	p-2 text-xs font-light text-white rounded-br-lg">
+                  <a
+                    href={`https://music.youtube.com/search?q=${listing.release.artist} ${listing.release.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mr-2"
+                  >
+                    <img src={"./icon-youtube.svg"} alt="YouTube" width={20} height={20} />
+                  </a>
+                  <a
+                    href={`https://music.apple.com/us/search?term=${listing.release.artist} ${listing.release.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mr-2"
+                  >
+                    <img src={"./icon-apple.svg"} alt="Apple Music" width={20} height={20} />
+                  </a>
+                  <a
+                    href={`https://www.deezer.com/search/${listing.release.artist} ${listing.release.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mr-2"
+                  >
+                    <img src={"./icon-deezer.svg"} alt="Deezer" width={20} height={20} />
+                  </a>
+                  <a
+                    href={`https://open.spotify.com/search/${listing.release.artist} ${listing.release.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mr-2"
+                  >
+                    <img src={"./icon-spotify.svg"} alt="Spotify" width={20} height={20} />
+                  </a>
+                  <a
+                    href={`https://listen.tidal.com/search?q=${listing.release.artist} ${listing.release.title}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mr-2"
+                  >
+                    <img src={"./icon-tidal.svg"} alt="TIDAL" width={20} height={20} />
+                  </a>
+                </span>
+              </div>
+            </CardFooter>
           </Card>
         </article>
       ))}
