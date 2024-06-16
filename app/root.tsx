@@ -1,4 +1,4 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "./tailwind.css";
@@ -6,6 +6,8 @@ import "./tailwind.css";
 const queryClient = new QueryClient();
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const error = useRouteError();
+  console.error(error);
   return (
     <html lang="en">
       <head>
@@ -15,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <main className="container">
+        <main className="container relative">
           {children}
           <ScrollRestoration />
           <Scripts />

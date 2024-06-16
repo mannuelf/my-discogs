@@ -9,13 +9,23 @@ import type { InventoryFetchResponse } from "./inventory.types";
  * @param sortOrder
  */
 export const fetchUserInventory = async (
+  pageNumber: string,
+  perPage: string,
   username: string,
   status: string,
   sort: string,
   sortOrder: string,
 ): Promise<InventoryFetchResponse | undefined> => {
   const baseUrl = `https://api.discogs.com/users/${username}/inventory`;
-  const queryParams = new URLSearchParams({ status, sort, sort_order: sortOrder }).toString();
+
+  const queryParams = new URLSearchParams({
+    page: pageNumber,
+    per_page: perPage,
+    status,
+    sort,
+    sort_order: sortOrder,
+  }).toString();
+
   const url = `${baseUrl}?${queryParams}`;
 
   const headers = {
