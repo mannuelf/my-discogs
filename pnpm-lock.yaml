@@ -44,9 +44,6 @@ importers:
       react-dom:
         specifier: 19.0.0-rc-fb9a90fa48-20240614
         version: 19.0.0-rc-fb9a90fa48-20240614(react@19.0.0-rc-fb9a90fa48-20240614)
-      react-ga4:
-        specifier: ^2.1.0
-        version: 2.1.0
       react-icons:
         specifier: ^5.2.1
         version: 5.2.1(react@19.0.0-rc-fb9a90fa48-20240614)
@@ -2838,9 +2835,6 @@ packages:
     resolution: {integrity: sha512-PoEsPe32F7KPLYOBvZfjylEI1B67N44PwY3lyvpmBkhlluLnLz0jH8q2Wg9YidAi6z0k3iUnNRm5x10wurzt9Q==}
     peerDependencies:
       react: 19.0.0-rc-fb9a90fa48-20240614
-
-  react-ga4@2.1.0:
-    resolution: {integrity: sha512-ZKS7PGNFqqMd3PJ6+C2Jtz/o1iU9ggiy8Y8nUeksgVuvNISbmrQtJiZNvC/TjDsqD0QlU5Wkgs7i+w9+OjHhhQ==}
 
   react-icons@5.2.1:
     resolution: {integrity: sha512-zdbW5GstTzXaVKvGSyTaBalt7HSfuK5ovrzlpyiWHAFXndXTdd/1hdDHI4xBM1Mn7YriT6aqESucFl9kEXzrdw==}
@@ -6701,8 +6695,6 @@ snapshots:
     dependencies:
       react: 19.0.0-rc-fb9a90fa48-20240614
       scheduler: 0.25.0-rc-fb9a90fa48-20240614
-
-  react-ga4@2.1.0: {}
 
   react-icons@5.2.1(react@19.0.0-rc-fb9a90fa48-20240614):
     dependencies:
