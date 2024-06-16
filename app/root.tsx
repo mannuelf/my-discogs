@@ -1,5 +1,8 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from "@remix-run/react";
+import ReactGA from "react-ga4";
 import "./tailwind.css";
+
+ReactGA.initialize(process.env.GOOGLE_ANALYTICS_ID);
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const error = useRouteError();
