@@ -1,3 +1,4 @@
+import { getErrorMessage } from "./inventory.helpers";
 import type { InventoryFetchResponse } from "./inventory.types";
 
 /**
@@ -36,9 +37,21 @@ export const fetchUserInventory = async (
   try {
     const response = await fetch(url, { headers });
     const data = await response.json();
+    if (!response.ok) {
+      const errorMessage = getErrorMessage(response.status);
+      throw new Error(`Server responded with a status: ${response.status} ${response.statusText}. ${errorMessage}`);
+    }
     return data;
   } catch (error) {
-    console.error("Error fetching user inventory:", error);
+    if (error instanceof TypeError) {
+      console.error("Network error:", error.message);
+      throw new Error(`Network error:: ${error}`);
+    } else if (error instanceof SyntaxError) {
+      console.error("Parsing error:", error.message);
+      throw new Error(`Parsing error: ${error}`);
+    } else {
+      throw new Error(`Failed to fetch user inventory: ${error}`);
+    }
   }
 
   return undefined;
