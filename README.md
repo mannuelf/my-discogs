@@ -29,6 +29,8 @@ Now you'll need to pick a host to deploy it to.
 ### Built With
 
 - 📖 [Remix docs](https://remix.run/docs)
+- 🎨 [shadcn/ui](https://ui.shadcn.com/)
+- React 19
 
 ### DIY
 
