@@ -22,7 +22,10 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export const meta: MetaFunction = () => {
-  return [{ title: "Shop records" }, { name: "description", content: "Buy some records" }];
+  return [{ title: "Shop records" }, {
+    name: "description",
+    content: "Buy some records",
+  }];
 };
 
 export default function Index() {
@@ -30,10 +33,10 @@ export default function Index() {
 
   return (
     <>
-      <div className="fixed mt-0 top-0 left-0 right-0 flex justify-center items-center ">
+     <Inventory {...data} />
+      <section className="fixed mb-0 bottom-10 left-0 right-0 flex justify-center items-center ">
         <PaginationBar total={data.pagination.pages} />
-      </div>
-      <Inventory {...data} />
+      </section>
       <Footer />
     </>
   );

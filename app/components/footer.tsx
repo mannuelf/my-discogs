@@ -1,7 +1,7 @@
 export const Footer = (): React.ReactElement => {
   return (
     <footer className="mt-4 p-4">
-      Data 🫶 provided by:{" "}
+      Data 🫶 provided by {" "}
       <a href="https://www.discogs.com/developers" target="_blank" rel="noopener noreferrer">
         <img
           src="./Discogs_logo_black.svg"
@@ -10,14 +10,23 @@ export const Footer = (): React.ReactElement => {
           title="Discogs API"
         />
       </a>{" "}
-      | Built by:{" "}
+      from {" "}
+      <a href="https://filtermusikk.no" target="_blank" rel="noopener noreferrer">
+      <img
+        src="https://res.cloudinary.com/mannuel/image/upload/v1720187186/images/xzq8sbpcw1ewk1qwqyo0.png"
+        alt="Filter Musikk logo"
+        className="h-9 w-auto inline-block"
+        title="Filter Musikk"
+      />
+    </a>{" "}
+     | {" "}
       <a
         href="https://github.com/mannuelf/my-discogs"
         target="_blank"
         rel="noopener noreferrer"
-        title="Mannuel Ferreira"
+        title="See the code"
       >
-        <img src="./mf-logo.svg" alt="Mannuel Ferreira logo" className="h-6 w-auto inline-block" />
+        Github
       </a>
     </footer>
   );

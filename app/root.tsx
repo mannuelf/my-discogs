@@ -58,7 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         )}
       </head>
       <body>
-        <main className="container relative">
+        <main className="w-full mx-auto relative">
           {children}
           <ScrollRestoration />
           <Scripts />
