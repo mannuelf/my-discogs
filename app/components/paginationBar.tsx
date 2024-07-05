@@ -87,7 +87,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             className="text-neutral-600"
           >
             <span className="sr-only">First page</span>
-            <FaChevronLeft name="double-arrow-left" />
+            <FaChevronLeft name="arrow-left" />
           </Link>
         </Button>
 
@@ -110,7 +110,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             className="text-neutral-600"
           >
             <span className="sr-only"> Previous page</span>
-            <FaArrowLeft name="arrow-left" />
+            <FaArrowLeft name="double-arrow-left" />
           </Link>
         </Button>
 
@@ -178,7 +178,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             className="text-neutral-600"
           >
             <span className="sr-only"> Next page</span>
-            <FaArrowRight name="arrow-right" />
+            <FaArrowRight name="double-arrow-right" />
           </Link>
         </Button>
 
@@ -201,7 +201,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             className="text-neutral-600"
           >
             <span className="sr-only">Last page</span>
-            <FaChevronRight name="double-arrow-right" />
+            <FaChevronRight name="arrow-right" />
           </Link>
         </Button>
       </div>
