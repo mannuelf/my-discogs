@@ -12,6 +12,7 @@ import "dotenv/config";
 import { useEffect } from "react";
 import { pageview } from "./lib/gtags.client";
 import "./tailwind.css";
+import { Analytics } from "@vercel/analytics/react";
 
 export async function loader() {
   return json({ gaTrackingId: process.env.REACT_APP_GOOGLE_ANALYTICS_ID });
@@ -38,7 +39,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+            />
             <script
               async
               id="gtag-init"
@@ -62,6 +66,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           {children}
           <ScrollRestoration />
           <Scripts />
+          <Analytics />
         </main>
       </body>
     </html>
