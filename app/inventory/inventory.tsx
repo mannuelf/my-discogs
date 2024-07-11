@@ -50,7 +50,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                       rel="noopener noreferrer"
                       className="text-sm text-white border-0 border-black-600 bg-black hover:text-color-black rounded-md p-2 mt-2 block"
                     >
-                      Buy on Discogs
+                      View on Discogs
                     </a>
                     <a
                       href={`https://music.youtube.com/search?q=${listing.release.title} ${listing.release.artist}`}
