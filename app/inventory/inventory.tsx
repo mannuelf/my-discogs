@@ -37,7 +37,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                     {listing.condition ?? listing.condition}
                   </CardHeader>
                   <CardContent className="flex-1 pt-4">
-                    <CardTitle className="text-lg">{listing.release.title}</CardTitle>
+                    <CardTitle className="text-sm">{listing.release.title}</CardTitle>
                     <CardDescription className="leading-6 text-black">
                       <strong>Artist:</strong> {listing.release.artist}
                       <br />
