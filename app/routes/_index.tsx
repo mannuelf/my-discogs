@@ -1,5 +1,5 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { json, useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 import { Footer } from "~/components/footer";
 import { PaginationBar } from "~/components/paginationBar";
 import { fetchUserInventory } from "~/inventory";
