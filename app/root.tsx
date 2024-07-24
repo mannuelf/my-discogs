@@ -6,7 +6,6 @@ import {
   Scripts,
   ScrollRestoration,
   useLoaderData,
-  useRouteError,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
 import "dotenv/config";
@@ -19,10 +18,8 @@ export async function loader() {
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const error = useRouteError();
   const data = useLoaderData<typeof loader>();
   const gaTrackingId = data?.gaTrackingId || "";
-  console.error(error);
 
   useEffect(() => {
     if (typeof window !== "undefined" && gaTrackingId?.length) {
