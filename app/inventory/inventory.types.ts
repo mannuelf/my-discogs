@@ -3,10 +3,13 @@ export interface Pagination {
   page: number;
   pages: number;
   per_page: number;
-  urls: Record<string, {
-    last: string
-    next: string
-  }>;
+  urls: Record<
+    string,
+    {
+      last: string;
+      next: string;
+    }
+  >;
 }
 
 export interface Price {
