@@ -1,5 +1,5 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { json, useLoaderData } from "@remix-run/react";
 import { Footer } from "~/components/footer";
 import { PaginationBar } from "~/components/paginationBar";
 import { fetchUserInventory } from "~/inventory";
@@ -23,7 +23,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Shop records" },
+    { title: `Shop ${process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME} records` },
     {
       name: "description",
       content: "Buy some records",
