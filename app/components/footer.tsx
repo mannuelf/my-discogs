@@ -1,3 +1,5 @@
+import { FaGithub } from "react-icons/fa";
+
 export const Footer = (): React.ReactElement => {
   return (
     <footer className="mt-4 p-4">
@@ -10,7 +12,7 @@ export const Footer = (): React.ReactElement => {
           title="Discogs API"
         />
       </a>{" "}
-      from{" "}
+      |{" "}
       <a href="https://filtermusikk.no" target="_blank" rel="noopener noreferrer">
         <img
           src="https://res.cloudinary.com/mannuel/image/upload/v1720187186/images/xzq8sbpcw1ewk1qwqyo0.png"
@@ -26,7 +28,7 @@ export const Footer = (): React.ReactElement => {
         rel="noopener noreferrer"
         title="See the code"
       >
-        Github
+        <FaGithub className="inline-block" name="Github" />
       </a>
     </footer>
   );

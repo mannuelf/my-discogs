@@ -35,7 +35,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
   const totalPages = Math.ceil(total / $top);
   const currentPage = Math.floor($skip / $top) + 1;
-  const maxPages = 5;
+  const maxPages = 4;
   const halfMaxPages = Math.floor(maxPages / 2);
 
   const canPageBackwards = $skip > 0;
@@ -66,10 +66,11 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
   }
 
   return (
-    <section className="flex justify-center mt-8 mb-8 bottom-8 bg-slate-100 rounded-md shadow-md">
+    <section className="grid gap-1 justify-center items-center justify-items-center mt-8 mb-8 bottom-8 rounded-md">
       <div className="flex items-center gap-1">
         <Button
           aria-label="Go to first page"
+          title="Go to first page"
           size="sm"
           variant="outline"
           asChild
@@ -84,7 +85,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             }}
             preventScrollReset
             prefetch="intent"
-            className="text-neutral-600"
+            className="text-neutral-600 "
           >
             <span className="sr-only">First page</span>
             <FaChevronLeft name="arrow-left" />
@@ -93,6 +94,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
         <Button
           aria-label="Go to previous page"
+          title="Go to previous page"
           size="sm"
           variant="outline"
           asChild
@@ -136,10 +138,12 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             return (
               <Button
                 aria-label="Go to next page"
+                title="Go to next page"
                 size="sm"
                 variant="ghost"
                 asChild
                 key={pageNumber}
+                className="bg-slate-300"
               >
                 <Link
                   to={{
@@ -161,6 +165,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
         <Button
           aria-label="Go to next page"
+          title="Go to next page"
           size="sm"
           variant="outline"
           asChild
@@ -184,6 +189,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
         <Button
           aria-label="Go to last page"
+          title="Go to last page"
           size="sm"
           variant="outline"
           asChild
@@ -204,6 +210,9 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
             <FaChevronRight name="arrow-right" />
           </Link>
         </Button>
+      </div>
+      <div className="flex justify-center items-center bg-slate-200 rounded-md w-48 text-sm text-center">
+        {currentPage} of {total}
       </div>
     </section>
   );

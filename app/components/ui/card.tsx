@@ -13,8 +13,14 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props} />
+  ({ children, className, ...props }, ref) => (
+    <>
+      <div ref={ref} className={cn("flex flex-col space-y-1.5 p-6", className)} {...props}>
+        <div className="absolute bottom-0 left-0 bg-slate-200 text-black text-sm p-1 rounded-tr-md">
+          {children}
+        </div>
+      </div>
+    </>
   ),
 );
 CardHeader.displayName = "CardHeader";

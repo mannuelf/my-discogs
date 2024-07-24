@@ -1,12 +1,12 @@
 import { vitePlugin as remix } from "@remix-run/dev";
+import { defineRdtConfig, remixDevTools } from "remix-development-tools";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import { remixDevTools, defineRdtConfig } from "remix-development-tools";
 
 const customConfig = defineRdtConfig({
   client: {
     position: "top-right",
-    defaultOpen: true,
+    defaultOpen: false,
     expansionLevel: 1,
     height: 500,
     minHeight: 300,
