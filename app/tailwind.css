@@ -71,6 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-slate-100 text-foreground;
+    background-color: #f6f6f6;
+    @apply text-foreground;
   }
 }

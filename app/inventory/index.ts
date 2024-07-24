@@ -17,7 +17,7 @@ export const fetchUserInventory = async (
   status: string,
   sort: string,
   sortOrder: string,
-): Promise<InventoryFetchResponse | undefined> => {
+): Promise<InventoryFetchResponse> => {
   const baseUrl = `https://api.discogs.com/users/${username}/inventory`;
 
   const queryParams = new URLSearchParams({
@@ -40,7 +40,9 @@ export const fetchUserInventory = async (
     const data = await response.json();
     if (!response.ok) {
       const errorMessage = getErrorMessage(response.status);
-      throw new Error(`Server responded with a status: ${response.status} ${response.statusText}. ${errorMessage}`);
+      throw new Error(
+        `Server responded with a status: ${response.status} ${response.statusText}. ${errorMessage}`,
+      );
     }
     return data;
   } catch (error) {
@@ -54,6 +56,4 @@ export const fetchUserInventory = async (
       throw new Error(`Failed to fetch user inventory: ${error}`);
     }
   }
-
-  return undefined;
 };

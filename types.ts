@@ -9,7 +9,8 @@ export const responses: ApiResponse[] = [
   {
     status: 200,
     title: "OK",
-    description: "The request was successful, and the requested data is provided in the response body.",
+    description:
+      "The request was successful, and the requested data is provided in the response body.",
     body: {}, // Example placeholder, actual data structure would vary
   },
   {
@@ -21,7 +22,8 @@ export const responses: ApiResponse[] = [
   {
     status: 204,
     title: "No Content",
-    description: "The request was successful, and the server has no additional information to convey, so the response body is empty.",
+    description:
+      "The request was successful, and the server has no additional information to convey, so the response body is empty.",
   },
   {
     status: 401,
@@ -32,12 +34,11 @@ export const responses: ApiResponse[] = [
     status: 403,
     title: "Forbidden",
     description: `You're not allowed to access this resource. Even if you authenticated, or already have, you simply don't have permission. Trying to modify another user's profile, for example, will produce this error.`,
-
   },
   {
     status: 404,
     title: "Not Found",
-    description: `The resource you requested doesn't exist.`
+    description: `The resource you requested doesn't exist.`,
   },
   {
     status: 405,
