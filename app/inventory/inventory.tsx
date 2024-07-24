@@ -16,17 +16,26 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
       <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-4 justify-items-start">
         {data.listings.map((listing: Listing) => (
           <>
-            <article key={listing.release.title} className="flex justify-start w-full">
+            <article
+              id={listing.release.title}
+              key={listing.release.title}
+              className="flex justify-start w-full"
+            >
               <Card className={cn("p-0 shadow-none w-full overflow-hidden")}>
                 <div className="justify-items-start">
                   <CardHeader
-                    className="flex-1 h-60 md:h-90 lg:h-100 p-0"
+                    className="flex-1 h-40 sm:h-60 md:h-90 lg:h-100 p-0 relative"
+                    title={listing.release.title}
                     style={{
-                      backgroundImage: `url(${listing.release.images[0].uri})`,
+                      backgroundImage: listing.release.images[0]
+                        ? `url(${listing.release.images[0].uri})`
+                        : "",
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
-                  ></CardHeader>
+                  >
+                    {listing.condition ?? listing.condition}
+                  </CardHeader>
                   <CardContent className="flex-1 pt-4">
                     <CardTitle className="text-lg">{listing.release.title}</CardTitle>
                     <CardDescription className="leading-6 text-black">
@@ -45,7 +54,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                           href={listing.uri}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-white border-0 border-black-600 bg-black hover:text-color-black rounded-md p-2 mt-2 block"
+                          className="text-xs text-white border-0 border-black-600 bg-black hover:text-color-black rounded-md p-2 mt-2 "
                         >
                           View on Discogs
                         </a>
@@ -55,7 +64,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                           )} ${encodeURIComponent(listing.release.artist)}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex justify-start text-sm text-white border-0 border-black-600 bg-black hover:text-color-black rounded-md p-2 mt-2"
+                          className="flex justify-start text-xs text-white border-0 border-black-600 bg-black hover:text-color-black rounded-md p-2 mt-2"
                         >
                           <span className="w-[24px] mt-[2px]">
                             <img src={"./icon-youtube.svg"} alt="YouTube" width={16} height={16} />
