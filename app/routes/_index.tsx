@@ -26,7 +26,9 @@ export const meta: MetaFunction = () => {
     { title: `Shop ${process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME} records` },
     {
       name: "description",
-      content: "Buy some records",
+      content: `Buy some vinyl records from ${
+        process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME
+      }`,
     },
   ];
 };
@@ -37,7 +39,7 @@ export default function Index() {
   return (
     <>
       <Inventory {...data} />
-      <section className="fixed mb-0 bottom-10 left-0 right-0 flex justify-center items-center ">
+      <section className="fixed mb-0 bottom-10 left-0 right-0 flex justify-center items-center">
         <PaginationBar total={data.pagination.pages} />
       </section>
       <Footer />

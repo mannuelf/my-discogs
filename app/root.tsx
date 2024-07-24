@@ -20,7 +20,8 @@ export async function loader() {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const error = useRouteError();
-  const { gaTrackingId } = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof loader>();
+  const gaTrackingId = data?.gaTrackingId || "";
   console.error(error);
 
   useEffect(() => {

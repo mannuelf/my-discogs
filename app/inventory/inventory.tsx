@@ -20,7 +20,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
               <Card className={cn("p-0 shadow-none w-full overflow-hidden")}>
                 <div className="justify-items-start">
                   <CardHeader
-                    className="flex-1 h-80 md:h-80 lg:h-90 p-0"
+                    className="flex-1 h-60 md:h-90 lg:h-100 p-0"
                     style={{
                       backgroundImage: `url(${listing.release.images[0].uri})`,
                       backgroundSize: "cover",
@@ -28,7 +28,7 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
                     }}
                   ></CardHeader>
                   <CardContent className="flex-1 pt-4">
-                    <CardTitle className="text-xl">{listing.release.title}</CardTitle>
+                    <CardTitle className="text-lg">{listing.release.title}</CardTitle>
                     <CardDescription className="leading-6 text-black">
                       <strong>Artist:</strong> {listing.release.artist}
                       <br />
