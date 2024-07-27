@@ -13,7 +13,7 @@ import type { InventoryFetchResponse, Listing } from "./inventory.types";
 export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
   return (
     <>
-      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-4 justify-items-start">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 gap-4 justify-items-start pb-7">
         {data.listings.map((listing: Listing) => (
           <>
             <article
