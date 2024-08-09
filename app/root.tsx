@@ -8,6 +8,7 @@ import {
   useLoaderData,
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/remix";
 import "dotenv/config";
 import { useEffect } from "react";
 import { pageview } from "./lib/gtags.client";
@@ -36,7 +37,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
           <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`} />
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+            />
             <script
               async
               id="gtag-init"
@@ -61,6 +65,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <ScrollRestoration />
           <Scripts />
           <Analytics />
+          <SpeedInsights />
         </main>
       </body>
     </html>
