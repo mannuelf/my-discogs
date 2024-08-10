@@ -63,6 +63,8 @@ export default function Index() {
             <a
               href="https://status.discogs.com/posts/dashboard"
               className="text-color-red"
+              target="_blank"
+              rel="noreferrer"
             >
               Api status page here
             </a>{" "}
