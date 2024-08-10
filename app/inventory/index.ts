@@ -17,7 +17,7 @@ export const fetchUserInventory = async (
   status: string,
   sort: string,
   sortOrder: string,
-): Promise<InventoryFetchResponse | undefined> => {
+): Promise<InventoryFetchResponse> => {
   const baseUrl = `https://api.discogs.com/users/${username}/inventory`;
 
   const queryParams = new URLSearchParams({
@@ -37,23 +37,22 @@ export const fetchUserInventory = async (
 
   try {
     const response = await fetch(url, { headers });
-    const data = await response.json();
+
     if (!response.ok) {
       const errorMessage = getErrorMessage(response.status);
       console.error(
         `Server responded with a status: ${response.status} ${response.statusText}. ${errorMessage}`,
       );
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    if (!data || !data.pagination) {
+      console.error("Unexpected API response structure:", data);
+      throw new Error("Invalid API response structure");
     }
     return data;
   } catch (error) {
-    if (error instanceof TypeError) {
-      console.error("Network error:", error.message);
-    } else if (error instanceof SyntaxError) {
-      console.error("Parsing error:", error.message);
-    } else {
-      console.error(`Failed to fetch user inventory: ${error}`);
-    }
+    console.error(`Failed to fetch user inventory:`, error);
+    throw error; // Re-throw the error to be handled by the caller
   }
-
-  return undefined;
 };
