@@ -21,7 +21,6 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "disconnect": "^1.2.2",
-    "dotenv": "^16.4.5",
     "isbot": "^4.4.0",
     "lucide-react": "^0.395.0",
     "react": "19.0.0-rc-fb9a90fa48-20240614",

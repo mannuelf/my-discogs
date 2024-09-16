@@ -1,3 +1,4 @@
+import { SerializeFrom } from "@remix-run/node";
 import {
   json,
   Links,
@@ -9,24 +10,34 @@ import {
 } from "@remix-run/react";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/remix";
-import "dotenv/config";
 import { useEffect } from "react";
 import { pageview } from "./lib/gtags.client";
 import "./tailwind.css";
 
 export async function loader() {
-  return json({ gaTrackingId: process.env.REACT_APP_GOOGLE_ANALYTICS_ID });
+  return json({
+    ENV: {
+      gaTrackingId: process.env.REACT_APP_GOOGLE_ANALYTICS_ID,
+      nodeEnv: process.env.NODE_ENV,
+      sellerUsername: process.env.SELLER_USERNAME,
+    },
+  });
+}
+
+declare global {
+  interface Window {
+    ENV: SerializeFrom<typeof loader>["ENV"];
+  }
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const data = useLoaderData<typeof loader>();
-  const gaTrackingId = data?.gaTrackingId || "";
+  const { ENV } = useLoaderData<typeof loader>();
 
   useEffect(() => {
-    if (typeof window !== "undefined" && gaTrackingId?.length) {
-      pageview(location.pathname, gaTrackingId);
+    if (typeof window !== "undefined" && ENV.gaTrackingId?.length) {
+      pageview(location.pathname, ENV.gaTrackingId);
     }
-  }, [gaTrackingId]);
+  }, [ENV.gaTrackingId]);
 
   return (
     <html lang="en">
@@ -35,12 +46,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
-        {process.env.NODE_ENV === "development" || !gaTrackingId ? null : (
+        {ENV.nodeEnv === "development" || !ENV.gaTrackingId ? null : (
           <>
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
-            />
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${ENV.gaTrackingId}`} />
             <script
               async
               id="gtag-init"
@@ -50,7 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                       function gtag(){dataLayer.push(arguments);}
                       gtag('js', new Date());
 
-                      gtag('config', '${gaTrackingId}', {
+                      gtag('config', '${ENV.gaTrackingId}', {
                         page_path: window.location.pathname,
                       });
                     `,

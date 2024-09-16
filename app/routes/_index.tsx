@@ -2,24 +2,10 @@ import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json, useLoaderData } from "@remix-run/react";
 import { Footer } from "~/components/footer";
 import { PaginationBar } from "~/components/paginationBar";
+import { TerminalIcon } from "~/components/TerminalIcon";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
 import { fetchUserInventory } from "~/inventory";
 import { Inventory } from "~/inventory/inventory";
-import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
-import { TerminalIcon } from "~/components/TerminalIcon";
-
-export const meta: MetaFunction = () => {
-  return [
-    {
-      title: `Shop ${process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME} records`,
-    },
-    {
-      name: "description",
-      content: `Buy some vinyl records from ${
-        process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME
-      }`,
-    },
-  ];
-};
 
 export const loader: LoaderFunction = async ({ request }) => {
   const searchParams = new URLSearchParams(request.url.split("?")[1]);
@@ -35,11 +21,24 @@ export const loader: LoaderFunction = async ({ request }) => {
       "desc",
     );
 
-    return json({ inventory: data });
+    return json({ inventory: data, ENV: { sellerUsername: process.env.SELLER_USERNAME } });
   } catch (error) {
     console.log("Error fetching inventory:", error);
     return json({ error: "Failed to load inventory. Please try again later or" }, { status: 500 });
   }
+};
+
+export const Meta: MetaFunction = () => {
+  const { ENV } = useLoaderData<typeof loader>();
+  return [
+    {
+      title: `Shop ${ENV.sellerUsername} records`,
+    },
+    {
+      name: "description",
+      content: `Buy some vinyl records from ${ENV.sellerUsername}`,
+    },
+  ];
 };
 
 export default function Index() {
