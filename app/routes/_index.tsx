@@ -10,9 +10,7 @@ import { TerminalIcon } from "~/components/TerminalIcon";
 export const meta: MetaFunction = () => {
   return [
     {
-      title: `Shop ${
-        process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME
-      } records`,
+      title: `Shop ${process.env.SELLER_USERNAME ?? process.env.SELLER_USERNAME} records`,
     },
     {
       name: "description",
@@ -37,15 +35,10 @@ export const loader: LoaderFunction = async ({ request }) => {
       "desc",
     );
 
-    console.log(data);
-
     return json({ inventory: data });
   } catch (error) {
     console.log("Error fetching inventory:", error);
-    return json(
-      { error: "Failed to load inventory. Please try again later or" },
-      { status: 500 },
-    );
+    return json({ error: "Failed to load inventory. Please try again later or" }, { status: 500 });
   }
 };
 
