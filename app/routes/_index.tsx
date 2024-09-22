@@ -1,14 +1,15 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json, useLoaderData } from "@remix-run/react";
-import { Footer } from "~/components/footer";
-import { PaginationBar } from "~/components/paginationBar";
-import { TerminalIcon } from "~/components/TerminalIcon";
-import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+import { Footer } from "~/components/Footer";
+import { PaginationBar } from "~/components/PaginationBar";
+import { StatusAlert } from "~/components/StatusAlert";
 import { fetchUserInventory } from "~/inventory";
 import { Inventory } from "~/inventory/inventory";
+import { InventoryFetchResponse } from "~/inventory/inventory.types";
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const searchParams = new URLSearchParams(request.url.split("?")[1]);
+  const url = new URL(request.url);
+  const searchParams = new URLSearchParams(url.search);
   const pageNumber = searchParams.get("page") || "1";
 
   try {
@@ -42,41 +43,23 @@ export const Meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  const { inventory, error } = useLoaderData<typeof loader>();
+  const { inventory, error } = useLoaderData<typeof loader>() as {
+    inventory: InventoryFetchResponse;
+    error: Error;
+  };
 
   if (error) {
-    return (
-      <div>
-        <Alert>
-          <TerminalIcon className="h-4 w-4" />
-          <AlertTitle>Heads up!</AlertTitle>
-          <AlertDescription>
-            Error: {error} Check the Discogs{" "}
-            <a
-              href="https://status.discogs.com/posts/dashboard"
-              className="text-color-red"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Api status page here
-            </a>{" "}
-            if the problem persists.
-          </AlertDescription>
-        </Alert>
-      </div>
-    );
+    <StatusAlert error={error} />;
   }
 
-  if (!inventory || !inventory.pagination) {
+  if (!inventory) {
     return <div>No inventory data available.</div>;
   }
 
   return (
     <>
       <Inventory {...inventory} />
-      <section className="fixed mb-0 bottom-10 left-0 right-0 flex justify-center items-center">
-        <PaginationBar total={inventory.pagination.pages} />
-      </section>
+      <PaginationBar total={inventory.pagination.pages} />
       <Footer />
     </>
   );
