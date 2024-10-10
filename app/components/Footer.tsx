@@ -2,7 +2,7 @@ import { FaGithub } from "react-icons/fa";
 
 export const Footer = (): React.ReactElement => {
   return (
-    <footer className="mt-4 p-4">
+    <footer>
       Data 🫶 provided by{" "}
       <a href="https://www.discogs.com/developers" target="_blank" rel="noopener noreferrer">
         <img

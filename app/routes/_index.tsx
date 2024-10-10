@@ -1,6 +1,5 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { json, useLoaderData } from "@remix-run/react";
-import { Footer } from "~/components/Footer";
 import { PaginationBar } from "~/components/PaginationBar";
 import { StatusAlert } from "~/components/StatusAlert";
 import { fetchUserInventory } from "~/inventory";
@@ -60,7 +59,6 @@ export default function Index() {
     <>
       <Inventory {...inventory} />
       <PaginationBar total={inventory.pagination.pages} />
-      <Footer />
     </>
   );
 }
