@@ -15,14 +15,14 @@ import {
  * @param sortOrder
  */
 export const fetchUserInventory = async (
-  pageNumber: string,
-  perPage: string,
+  page: string,
+  per_page: string,
   username: string,
   status: string,
   sort: string,
-  sortOrder: string,
+  sort_order: string,
 ) => {
-  const url = buildUrl(username, { pageNumber, perPage, status, sort, sortOrder });
+  const url = buildUrl(username, { page, per_page, status, sort, sort_order });
   const headers = buildHeaders();
 
   try {
