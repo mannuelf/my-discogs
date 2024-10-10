@@ -68,8 +68,8 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
 
   return (
     <>
-      <section className="grid grid-cols-1 fixed mb-0 bottom-0 left-0 right-0 justify-center items-center">
-        <div className="grid gap-1 justify-center items-center justify-items-center rounded-md">
+      <section className="fixed mb-0 bottom-0 left-0 right-0 flex justify-center items-center">
+        <div className="grid grid-cols-1 gap-1 justify-center items-center justify-items-center rounded-md">
           <div className="flex items-center gap-1">
             <Button
               aria-label="Go to first page"
@@ -216,7 +216,7 @@ export const PaginationBar = ({ total }: { total: number }): React.ReactElement 
           </div>
           <div className="flex justify-center items-center bg-slate-200 rounded-md w-48 text-sm text-center">
             {currentPage} of {total}
-          </div>
+          </div>{" "}
           <Footer />
         </div>
       </section>
