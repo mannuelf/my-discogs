@@ -22,15 +22,19 @@ export const Inventory = (data: InventoryFetchResponse): React.ReactElement => {
           <Card className={cn("p-0 shadow-none w-full overflow-hidden")}>
             <div className="justify-items-start">
               <CardHeader
-                className="flex-1 h-40 sm:h-60 md:h-90 lg:h-100 p-0 relative"
+                className="relative h-40 sm:h-60 md:h-90 lg:h-100 w-full"
                 title={listing.release.title}
-                style={{
-                  backgroundImage: listing.release.images[0]
-                    ? `url(${listing.release.images[0].uri})`
-                    : "",
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
+                style={
+                  listing.release.images.length > 0
+                    ? {
+                        backgroundImage: `url(${listing.release.images[0].uri})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                      }
+                    : {
+                        backgroundColor: "#ccc",
+                      }
+                }
               >
                 {listing.condition ?? listing.condition}
               </CardHeader>
